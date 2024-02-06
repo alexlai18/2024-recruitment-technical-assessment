@@ -13,6 +13,7 @@ class File:
 Task 1
 """
 def leafFiles(files: list[File]) -> list[str]:
+    # Store all parents by ids and add all file names that don't have their id in parentFiles
     parentFiles = set()
     for file in files:
         parentFiles.add(file.parent)
@@ -29,6 +30,7 @@ Task 2
 """
 from collections import Counter
 def kLargestCategories(files: list[File], k: int) -> list[str]:
+    # Use python lib to make dict of categories and the files that are part of that category
     categoryCounter = Counter(category for file in files for category in file.categories)
     # Lambda to sort in descending order of occurence, and then if the same, sort alphabetically
     descendingCategories = sorted(categoryCounter.keys(), key=lambda name: (-categoryCounter[name], name))
@@ -38,7 +40,6 @@ def kLargestCategories(files: list[File], k: int) -> list[str]:
 """
 Task 3
 """
-from collections import defaultdict
 def largestFileSize(files: list[File]) -> int:
     # Keep traversing to find the total size of a folder/file by recursively looking through children
     res = 0
@@ -46,6 +47,7 @@ def largestFileSize(files: list[File]) -> int:
     def findTotalSize(parentFile: File) -> int:
         size = parentFile.size;
         for file in files:
+            # If the file is a child of the current file, recurse to find total folder size
             if file.parent == parentFile.id:
                 size += findTotalSize(file)
         return size
