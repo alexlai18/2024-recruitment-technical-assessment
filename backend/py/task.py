@@ -13,21 +13,46 @@ class File:
 Task 1
 """
 def leafFiles(files: list[File]) -> list[str]:
-    return []
+    parentFiles = set()
+    for file in files:
+        parentFiles.add(file.parent)
+    
+    res = []
+    for file in files:
+        if file.id not in parentFiles:
+            res.append(file.name)
+    return res
 
 
 """
 Task 2
 """
+from collections import Counter
 def kLargestCategories(files: list[File], k: int) -> list[str]:
-    return []
+    categoryCounter = Counter(category for file in files for category in file.categories)
+    # Lambda to sort in descending order of occurence, and then if the same, sort alphabetically
+    descendingCategories = sorted(categoryCounter.keys(), key=lambda name: (-categoryCounter[name], name))
+    return descendingCategories[:k]
 
 
 """
 Task 3
 """
+from collections import defaultdict
 def largestFileSize(files: list[File]) -> int:
-    return 0
+    # Keep traversing to find the total size of a folder/file by recursively looking through children
+    res = 0
+
+    def findTotalSize(parentFile: File) -> int:
+        size = parentFile.size;
+        for file in files:
+            if file.parent == parentFile.id:
+                size += findTotalSize(file)
+        return size
+
+    for file in files:
+        res = max(findTotalSize(file), res)
+    return res
 
 
 if __name__ == '__main__':
