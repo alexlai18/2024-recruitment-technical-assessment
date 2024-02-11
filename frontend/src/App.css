@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some padding to make space for the custom arrow */
+  padding-right: 20px; 
+  /* Ensure the select box remains clickable */
+  cursor: pointer;
+  /* Add a background image (an inline SVG) */
+  background-image: url('data:image/svg+xml;utf8, <svg className="absolute pointer-events-none right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true" ><path fillRule="evenodd" clipRule="evenodd" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="#4A5568"/></svg>'); 
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* Add some padding to the text inside the select */
+  padding-right: 30px;
+}

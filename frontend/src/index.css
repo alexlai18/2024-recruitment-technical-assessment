@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: "TT Commons Pro Variable", "Segoe UI", Arial,sans-serif,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+select {
+  /* Hide the default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some padding to make space for the custom arrow */
+  padding-right: 20px;
+  /* Ensure the select box remains clickable */
+  cursor: pointer;
+  /* Add a background image (an inline SVG) */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" clip-rule="evenodd" /></svg>');
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* Add some padding to the text inside the select */
+  padding-right: 30px;
+}
+
+/* Optional: Style the select box */
+select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+}
