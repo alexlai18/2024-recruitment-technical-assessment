@@ -19,7 +19,7 @@ const SortDropdown = () => {
         <Listbox value={selectedOption} onChange={setSelectedOption}>
           <div className="relative">
             <Listbox.Button className="relative flex items-center justify-between gap-2 w-full cursor-pointer bg-white py-2 px-4 text-left border border-[#989898] border-opacity-1 rounded-md shadow-review-card aria-expanded:border-b-transparent aria-expanded:rounded-b-none">
-              <span className="block truncate">{selectedOption}</span>
+              <span className={`${selectedOption === "Sort By" ? "text-[#989898] text-opacity-1" : "block truncate"}`}>{selectedOption}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <svg
                   className="absolute pointer-events-none right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500"
